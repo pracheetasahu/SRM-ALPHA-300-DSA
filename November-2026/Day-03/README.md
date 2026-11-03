@@ -1,37 +1,37 @@
-# Day 2 – Character Transformation
+# Day 3 – Character Frequency Counting
 
-## 1. To Lower Case
-- **Technique:** ASCII Character Conversion
-- **Approach:** Traverse each character and check its ASCII value using ord(). If it is uppercase, add 32 and convert it back using chr().
+## 1. Valid Anagram
+- **Technique:** Frequency Dictionary
+- **Approach:** Build a frequency dictionary for the first string. Traverse the second string and decrease the corresponding character counts. If a character is missing or has no remaining count, return False.
 - **Time Complexity:** O(n)
-- **Auxiliary Space:** O(n)
-- **Edge Case:** String contains only lowercase letters or numbers.
+- **Auxiliary Space:** O(k), where k is the number of distinct characters.
+- **Edge Case:** Both strings have equal lengths but different character frequencies.
 
-## 2. Capitalize the Title
-- **Technique:** ASCII Conversion + Word Processing
-- **Approach:** Build each word manually. Convert every character to lowercase for words of length 1 or 2. For longer words, capitalize the first character and lowercase the remaining characters.
-- **Time Complexity:** O(n)
-- **Auxiliary Space:** O(n)
-- **Edge Case:** Words containing only one or two characters.
+## 2. Group Anagrams
+- **Technique:** Hash Map + Frequency Signature
+- **Approach:** Build a 26-position frequency array for every word. Convert it into a tuple and use it as a dictionary key to group words with identical character frequencies.
+- **Time Complexity:** O(n × k), where n is the number of words and k is the maximum word length.
+- **Auxiliary Space:** O(n × 26) for frequency signatures and groups, excluding output.
+- **Edge Case:** Empty strings or words containing repeated characters.
 
-## 3. Defanging an IP Address
-- **Technique:** Character Traversal and String Building
-- **Approach:** Traverse the IP address. Replace every dot with [.] and preserve all other characters using a result list and join().
+## 3. First Unique Character in a String
+- **Technique:** Frequency Dictionary + Linear Traversal
+- **Approach:** Count every character using a dictionary. Traverse the string again and return the index of the first character with frequency 1.
 - **Time Complexity:** O(n)
-- **Auxiliary Space:** O(n)
-- **Edge Case:** IP address contains multiple dots.
+- **Auxiliary Space:** O(k), where k is the number of distinct characters.
+- **Edge Case:** All characters repeat, so return -1.
 
 ## Learning Outcomes
-- Understood ASCII values of uppercase and lowercase letters.
-- Practiced ord() and chr() for character conversion.
-- Learned manual word processing.
-- Practiced character replacement without built-in shortcuts.
-- Understood efficient string construction using lists.
+- Learned to construct frequency dictionaries manually.
+- Practiced counting and comparing character frequencies.
+- Understood anagram grouping using frequency signatures.
+- Learned to find the first unique character.
+- Practiced using tuples as dictionary keys.
 
 ## Restrictions Followed
-- No lower() used.
-- No upper() used.
-- No swapcase() used.
+- No collections.Counter used.
+- No Counter.most_common() used.
+- Frequency dictionaries built manually.
+- No built-in sorting used.
 - No unnecessary library imports.
-- Character transformations implemented manually.
-- Strings built using lists and join().
+- Only primitive data structures used.
